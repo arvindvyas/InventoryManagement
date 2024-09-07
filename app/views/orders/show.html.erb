@@ -1,0 +1,32 @@
+<h1>Order Details</h1>
+
+<p>
+  <strong>Customer Name:</strong>
+  <%= @order.customer_name %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<h2>Order Items</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.order_items.each do |item| %>
+      <tr>
+        <td><%= item.product.name %></td>
+        <td><%= item.quantity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit Order', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
